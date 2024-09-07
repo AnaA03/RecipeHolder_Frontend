@@ -5,9 +5,29 @@
   <title>MyRecipeHolder</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="assets/FaviconR.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap"rel="stylesheet"/>
+  <!-- Script to login with Gmail -->
+  <!-- <script src="https://accounts.google.com/gsi/client" async></script> -->
+
+<!--   <script>
+    function decodeJWTToken(token){
+      return JSON.parse(atob(token.split(".")[1]));
+    }
+    function handleCredentialResponse(response){
+      // to decode the credential response
+      const responsePayload = decodeJWTToken(response.credential);
+      sessionStorage.setItem("loggedInUser",JSON.stringify(responsePayload));
+      window.location.href = "/home";
+    }
+    function handleSignout(){
+      google.accounts.id.disableAutoSelect();
+    }
+  </script> -->
+
 </head>
 <body>
-  <app-root></app-root>
+  <app-root></app-root> 
 </body>
 </html>

@@ -1,0 +1,56 @@
+.text-title {
+    font-size: 1.25em;
+    color: #dc3545 ;
+}
+
+.form-container {
+    margin-top: 50px;
+    padding: 20px 70px 20px 70px;
+    border: 1px solid red;  
+    
+    display: flex;
+    flex-direction: column;
+}
+.margin-header {
+  margin-top: 1.5rem;
+}
+
+
+/* Media Query for Mobile Devices */
+  @media (max-width: 480px) {
+    .form-group {
+        padding: 0;
+    }
+
+    .form-container {
+        margin-top: 10px;
+        padding: 10px 20px 10px 20px;
+    }
+    .bg-red {
+      background-color: #dc3545;
+    }
+    .text-title {
+      color: white;
+    } 
+    .hide-hr {
+      visibility: hidden;
+    }
+    .margin-header {
+      margin: 0px;
+    }
+}
+
+.mar-bottom {
+    margin-bottom: 20px;
+}
+.mar-top {
+  margin-top: 20px;
+}
+
+.link-member {
+    margin-top: auto;
+}
+.btn-signin {
+    width: 60%;
+    
+}

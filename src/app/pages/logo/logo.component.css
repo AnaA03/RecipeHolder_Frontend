@@ -1,0 +1,53 @@
+.text-recipe {
+    font-size: 20px;
+}
+.text-link {
+    font-style: italic;
+    font-weight: light;
+}
+
+.img-section img{
+    width: 60%;
+    height: auto;
+}
+
+.welcome-section p {
+    text-align: center;
+}
+
+  /*
+        /* Media Query for Mobile Devices */
+       /*  @media (max-width: 480px) {
+            body {
+                
+            }
+        } */
+         
+        /* Media Query for low resolution  Tablets, Ipads */
+       /*  @media (min-width: 481px) and (max-width: 767px) {
+            body {
+                background-color: yellow;
+            }
+        } */
+         
+        /* Media Query for Tablets Ipads portrait mode */
+       /*  @media (min-width: 768px) and (max-width: 1024px){
+            body {
+                background-color: blue;
+            }
+        }
+          */
+        /* Media Query for Laptops and Desktops */
+       /*  @media (min-width: 1025px) and (max-width: 1280px){
+            body {
+                background-color: green;
+            }
+        } */
+         
+        /* Media Query for Large screens */
+       /*  @media (min-width: 1281px) {
+            body {
+                background-color: white;
+            }
+        } */
+        

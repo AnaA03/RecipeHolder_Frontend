@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center">
+            <section class="welcome-section text-center">
+                <p class="text-recipe text-danger">Welcome to <span class="bold h4">MyRecipeHolder</span> app! </p>
+                <p class="text-link text-danger">Save all your favorite recipe links here. </p>
+                <button class="btn btn-danger" [hidden]="!isUser" (click)="getStarted()" style="margin-bottom: 12px;">Get Started</button>
+            </section>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6 text-center">
+            <section class="img-section">
+                <img src="assets/Designer.png" alt="Foodie" class="shadow img-recipe">
+            </section>
+        </div>
+    </div>
+</div>

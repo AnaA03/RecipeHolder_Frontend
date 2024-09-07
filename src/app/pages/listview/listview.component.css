@@ -1,0 +1,31 @@
+.desc-container {
+    margin: auto;
+    padding: 10px;
+    margin-top: 50px;
+    
+  }
+
+  /* Media Query for Mobile Devices */
+/* @media (max-width: 480px) {
+
+    .desc-container {
+        margin-top: 70px;
+      }
+
+} */
+.accordion {
+    margin-top: 20px;
+}
+/* .accordion-item {
+    border: 1px solid;
+    border-radius: 5px;
+} */
+.categoryName-container {
+    text-align: center;
+    padding: 10px;
+    background-color: #dc3545;
+
+}
+.modal-footer {
+    border-top: 0px !important;
+  }

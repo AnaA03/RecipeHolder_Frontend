@@ -1,0 +1,119 @@
+
+<div class="container p-3">
+  <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-2 g-lg-3">
+    <div class="col" *ngFor="let category of arr_category">
+      <div class="card shadow bg-danger hoverbtn">
+        <div class="d-flex  flex-row-reverse right-icon">
+          <div class="dropdown">
+            <i class="bi bi-three-dots-vertical h5 hoverHand text-white" data-bs-toggle="dropdown"
+              aria-expanded="false"></i>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li class="hoverHand">
+                <p class="dropdown-item hoverColorNone text-danger" data-bs-toggle="modal"
+                  data-bs-target="#EditCategory" (click)="update(category.category_id)">Update
+                  <i class="bi bi-pencil-fill text-danger icon-rightAlign"></i>
+                </p>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li class="hoverHand">
+                <p class="dropdown-item hoverColorNone text-danger hoverHand" data-bs-toggle="modal"
+                  data-bs-target="#deleteCategory" (click)="openModal_Delete(category.category_id)">
+                  Remove <i class="bi bi-trash-fill text-danger icon-rightAlign"></i></p>
+            </ul>
+          </div>
+        </div>
+        <!-- Modal for Update-->
+        <div class="modal fade" id="EditCategory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="editCategoryForm" (submit)="updateCategory()">
+                  <div class="form-group">
+                    <input type="text" class="form-control" formControlName="category_name" maxlength="20">
+                  </div>
+             
+                  <div class="modal-footer">
+                    <button class="btn btn-danger" data-bs-dismiss="modal">Update</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal for Delete-->
+        <div class="modal fade" id="deleteCategory" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Remove Category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <p>Are you sure you want to remove the category?</p>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-danger" data-bs-dismiss="modal"
+                    (click)="display=false; onPress(true)">Delete</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                    (click)="display=false; onPress(false)">Close</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer bg-danger text-center pe-auto text-white">
+          <button type="button" class="btn btn-danger hoverbtn" [routerLink]="['/list',category.category_id]">
+            {{category.category_name}}
+          </button>
+        </div>
+
+
+      </div>
+    </div>
+  
+    <div class="col" *ngIf="isUser">
+      <div class="card shadow new-card">
+        <div class="card-body text-center">
+         <!--  <p class="card-text"> Add New Category</p> -->
+          <button type="button" class="btn btn-danger fs-4 rounded-circle" data-bs-toggle="modal"
+          data-bs-target="#categoryModal"
+            ><i class="bi bi-plus"></i></button>
+          <!-- Modal to add new category-->
+          <div id="categoryModal" tabindex="-1" aria-labelledby="exampleModalLabel"  aria-hidden="true" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Category</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form [formGroup]="categoryForm" (submit)="add()" id="categoryFormId">
+                    <div class="form-group">
+                      <input type="text" id="categoryNameId" class="form-control" id="" formControlName="category_name" maxlength="20">           
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-danger" data-bs-dismiss="modal">Add</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

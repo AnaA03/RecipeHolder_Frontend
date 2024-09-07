@@ -1,0 +1,36 @@
+.text-title {
+    font-size: 1.25em;
+}
+
+.form-container {
+    margin-top: 50px;
+    padding: 20px 70px 20px 70px;
+    border: 1px solid red;  
+    
+    display: flex;
+    flex-direction: column;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+    .form-group {
+        padding: 0;
+    }
+
+    .form-container {
+        margin-top: 10px;
+        padding: 10px 20px 10px 20px;
+    }
+}
+
+.mar-bottom {
+    margin-bottom: 20px;
+}
+
+.link-member {
+    margin-top: auto;
+}
+.btn-signin {
+    width: 50%;
+    
+}

@@ -1,0 +1,43 @@
+  <div class="container-fluid p-0">
+    <div class="margin-header p-2 bg-red">
+    <div class="row">
+      <div class="col-6"><p class="title-text">MyRecipeHolder</p></div>
+      <div class="col-6">
+        <div class="dropdown">
+          <p class="txt-user title-text dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
+           [hidden]="!isUser" >
+           Welcome, {{decodedUsername}}</p>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item text-menu-logout" href="#" (click)="logout()">Logout</a>
+          </div>
+        </div>     
+        <button type="button" class="btn btn-danger text-login" [hidden]="isUser" (click)="login()">Login</button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+<hr class="hide-hr">
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light p-2">
+  <div class="container-fluid">
+    <a class="navbar-brand title-text">MyRecipeHolder</a> -->
+  <!--   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> -->
+   <!--  <div class="container-right"> -->
+      <!-- <p>Already A Member?</p>
+      <button type="button" class="btn btn-danger btn-login"  [routerLink]="'/login'">Login</button> -->
+     <!--  <ul class="navbar-nav">
+         <div class="title-text"><p class="txt-member">Already A Member?</p></div>
+         <li class="nav-item margin-left"><button type="button" class="btn btn-danger btn-login"  [routerLink]="'/login'">Login</button></li>
+         --> <!--  <i class="bi bi-person-fill h2 text-login" [routerLink]="'/login'"></i> -->
+        <!--   <li class="nav-item">Welcome, {{this.decodedUsername}}</li>
+          <li class="nav-item" (click)="logout()">Logout</li> -->
+<!--       </ul>
+    </div>
+  </div>
+</nav> -->
