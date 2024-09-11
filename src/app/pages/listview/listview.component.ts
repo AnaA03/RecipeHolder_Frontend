@@ -116,9 +116,9 @@ export class ListviewComponent implements OnInit {
       this._rest.addRecipeDetails(obj).subscribe((resp: any) => {
         //console.log(obj);
         //console.log("add recipreeeeee", resp.data);
-        this.recipeForm.reset();
         //this.getAllRecipeDetailsById();
         this.ngOnInit();
+        this.recipeForm.reset();
       }, err => {
         console.log(err);
       })
