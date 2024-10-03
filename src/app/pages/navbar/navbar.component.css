@@ -32,10 +32,14 @@
       }
     .title-text{
         color: white;
+        text-align: center;
     }
     .text-login{
         padding: 0px !important;
         font-size: large;
+    }
+    .google-btn {
+        display: none;
     }
 }
 

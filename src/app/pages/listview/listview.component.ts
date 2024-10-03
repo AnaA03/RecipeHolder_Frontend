@@ -40,13 +40,12 @@ export class ListviewComponent implements OnInit {
 
   @ViewChild('isVideoShow') vidS!: ElementRef;
 
-  constructor(private _route: ActivatedRoute, private _rest: RestService, private _router: Router, private formBuilder: FormBuilder, private _sanitizer: DomSanitizer) {
+  constructor(private _route: ActivatedRoute, private _rest: RestService, private _router: Router, private _sanitizer: DomSanitizer) {
     this.newLink = this._sanitizer.bypassSecurityTrustUrl(this.recipeLink);
     this.videoUrl = this._sanitizer.bypassSecurityTrustResourceUrl(this.recipeLink);
   }
 
   ngOnInit(): void {
-
     this._route.params.subscribe(param => {
       this.category_id = Number(param['id']);
 
@@ -55,12 +54,10 @@ export class ListviewComponent implements OnInit {
       // Get Category Name by Id
       this._rest.getSingleCategoryById(this.category_id).subscribe((resp: any) => {
         this.category_name = resp.data;
-        //console.log("Category in List",this.category_name);
       }, err => {
         console.log(err);
       })
     })
-   
     this.recipeForm = new FormGroup({
       category_id: new FormControl(this.category_id),
       recipe_name: new FormControl('', [Validators.required]),
@@ -81,11 +78,11 @@ export class ListviewComponent implements OnInit {
   }
 
   getAllRecipeDetailsById() {
-
+ console.log("category_id",this.category_id);
     this._rest.getRecipeDetailsById(this.category_id).subscribe((resp: any) => {
       //console.log(resp.data);
       this.arr_recipeDetails = resp.data;
-      console.log("recipe details",this.arr_recipeDetails)
+     // console.log("recipe details",this.arr_recipeDetails)
       if(this.arr_recipeDetails.length != 0 ){
          for(let i = 0; i < this.arr_recipeDetails.length;i++){
           this.recipeLink = this.arr_recipeDetails[i]['recipe_link']; 
@@ -108,14 +105,12 @@ export class ListviewComponent implements OnInit {
 
   add() {
     const obj = this.recipeForm.value;
-    this.youTubeRecipeLink = this.recipeForm.get('recipe_link').value;
-    var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
-    var matches = this.youTubeRecipeLink.match(p);
-
-    if (this.recipeForm.valid && matches && this.recipeForm.value != '') {
+   // this.youTubeRecipeLink = this.recipeForm.get('recipe_link').value;
+   // var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+   // var matches = this.youTubeRecipeLink.match(p);
+    console.log("obj", obj);
+    if (this.recipeForm.valid && this.recipeForm.value != '') {
       this._rest.addRecipeDetails(obj).subscribe((resp: any) => {
-        //console.log(obj);
-        //console.log("add recipreeeeee", resp.data);
         //this.getAllRecipeDetailsById();
         this.ngOnInit();
         this.recipeForm.reset();
@@ -125,8 +120,9 @@ export class ListviewComponent implements OnInit {
     } else {
       //console.log("Invalid Youtube url");
       this.recipeForm.markAllAsTouched();
-
     }
+    window.location.reload();
+    
   }
 
 

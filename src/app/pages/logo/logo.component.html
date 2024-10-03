@@ -4,7 +4,15 @@
             <section class="welcome-section text-center">
                 <p class="text-recipe text-danger">Welcome to <span class="bold h4">MyRecipeHolder</span> app! </p>
                 <p class="text-link text-danger">Save all your favorite recipe links here. </p>
-                <button class="btn btn-danger" [hidden]="!isUser" (click)="getStarted()" style="margin-bottom: 12px;">Get Started</button>
+                <div id="google-btn"></div>
+                <!-- <button class="btn btn-danger" [hidden]="!isUser" id="google-btn"style="margin-bottom: 12px;">Get Started</button> -->
+<!--                 <div class="dropdown">
+                    <p class="txt-user title-text dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                     Welcome, {{name}}</p>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item text-menu-logout" (click)="logout()">Logout</a>
+                    </div>
+                  </div>   -->
             </section>
         </div>
         <div class="col-sm-12 col-md-6 col-lg-6 text-center">

@@ -14,8 +14,8 @@ export class RestService {
   getAllCategory() {
     return this._http.get(this.url+'/categories');
   }
-  getAllCategoriesByUserId(userId: number){
-    return this._http.get(this.url+'/get_Allcategories_byId/'+ userId);
+  getAllCategoriesByUserId(user_id: number){
+    return this._http.get(this.url+'/get_Allcategories_byId/'+ user_id);
   }
 
   addCategory(category: any) {

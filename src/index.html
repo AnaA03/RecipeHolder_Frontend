@@ -9,23 +9,7 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap"rel="stylesheet"/>
   <!-- Script to login with Gmail -->
-  <!-- <script src="https://accounts.google.com/gsi/client" async></script> -->
-
-<!--   <script>
-    function decodeJWTToken(token){
-      return JSON.parse(atob(token.split(".")[1]));
-    }
-    function handleCredentialResponse(response){
-      // to decode the credential response
-      const responsePayload = decodeJWTToken(response.credential);
-      sessionStorage.setItem("loggedInUser",JSON.stringify(responsePayload));
-      window.location.href = "/home";
-    }
-    function handleSignout(){
-      google.accounts.id.disableAutoSelect();
-    }
-  </script> -->
-
+  <script src="https://accounts.google.com/gsi/client" async></script>
 </head>
 <body>
   <app-root></app-root> 

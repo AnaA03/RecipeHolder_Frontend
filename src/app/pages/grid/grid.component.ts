@@ -25,26 +25,20 @@ export class GridComponent implements OnInit {
   showModal: boolean = false;
   submitted = false;
 
-  token: any;
   isUser = false;
-  decodedUsername = '';
-  decodedUser_id = 0;
-
+ 
   constructor(private _rest: RestService, private _router: Router,private _route: ActivatedRoute,private _user: UsersService) {
  
   }
 
   ngOnInit(): void {
-    this._route.queryParams.subscribe((params:any) => {
-      this.user_id = params.data;
-    })
-    if (this.user_id === undefined) {
-      this._user.decodedToken();
-      this.user_id = this._user.decoded.user;
-    }else {
-      this.isUser = true;
+  if(!sessionStorage['loggedInUser']){
+    console.log("user not exits");   
   }
-
+  else {
+    this.user_id = JSON.parse(sessionStorage.getItem("loggedInUser")!).sub;
+    console.log("useriddd in grid",this.user_id);  
+  }
     this.decodeUsernameSignUp();
 
    this.getAllCategoriesByUserId();
@@ -60,12 +54,12 @@ export class GridComponent implements OnInit {
   }
 
   decodeUsernameSignUp(){
-    this.token = localStorage.getItem('token');
-    if(this.token != null){
+    if(!sessionStorage['loggedInUser']){
       this.isUser = true;
-    } else {
-       this.isUser = false;
+    }else {
+      this.isUser = true;
     }
+    console.log("logg",this.isUser);
   }
 
   openModal_Delete(category_id: number) {
@@ -111,10 +105,11 @@ export class GridComponent implements OnInit {
   }
 
   getAllCategoriesByUserId() {
-    //console.log("iddd cate",this.user_id);
+    console.log("iddd cate",this.user_id);
     this._rest.getAllCategoriesByUserId(this.user_id).subscribe((resp: any) => {
       this.arr_category = resp.data;
-     // console.log("arrrrrrrr", this.arr_category);
+      console.log("respppp",resp.data);
+      console.log("arrrrrrrr", this.arr_category);
     }, err => {
       console.log(err);
     })
@@ -133,8 +128,13 @@ export class GridComponent implements OnInit {
 
   get f() { return this.categoryForm.controls; }
   add() {
-    //console.log("I want id",this.user_id);
+    if(!sessionStorage['loggedInUser']){
+      alert("Please login.")  
+    }
+    else {
+    console.log("I want id",this.user_id);
     const obj = this.categoryForm.value;
+    console.log("obj input category name",obj);
       this.submitted = true;
       // stop here if form is invalid
       if(this.categoryForm.valid && this.categoryForm.value != '') {
@@ -152,10 +152,7 @@ export class GridComponent implements OnInit {
         
       }
     }
-
-       
-  
-
+  }
 }
 
 

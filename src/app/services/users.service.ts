@@ -1,4 +1,6 @@
-import { Injectable } from '@angular/core';
+declare var google: any;
+import { inject, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 const helper = new JwtHelperService;
 
@@ -6,6 +8,7 @@ const helper = new JwtHelperService;
   providedIn: 'root'
 })
 export class UsersService {
+  router = inject(Router)
 
   decoded: any;
   token: any;
@@ -13,6 +16,10 @@ export class UsersService {
 
   constructor() { }
 
+  signOut(){
+    google.accounts.id.disableAutoSelect();
+    this.router.navigate(['/'])
+  }
 
   decodedToken(){
       this.token = localStorage.getItem('token');
