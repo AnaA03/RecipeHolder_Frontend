@@ -129,7 +129,12 @@ export class GridComponent implements OnInit {
   get f() { return this.categoryForm.controls; }
   add() {
     if(!sessionStorage['loggedInUser']){
-      alert("Please login.")  
+      
+      const modalDiv = document.getElementById('isNewUser');
+      if(modalDiv!= null){
+        modalDiv.style.display = 'block' ;
+      }
+       
     }
     else {
     console.log("I want id",this.user_id);

@@ -73,13 +73,33 @@
           </div>
         </div>
 
+                <!-- Modal for New User Verification-->
+                <div class="modal fade" id="isNewUser" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Please Login</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <p>Please Login first</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+      
+                  </div>
+                </div>
+              </div>
+
         <div class="card-footer bg-danger text-center pe-auto text-white">
           <button type="button" class="btn btn-danger hoverbtn" [routerLink]="['/list',category.category_id]">
             {{category.category_name}}
           </button>
         </div>
-
-
       </div>
     </div>
   
