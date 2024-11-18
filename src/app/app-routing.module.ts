@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'categories/:user_id',component: GridComponent},
   {path: 'list/:id', component: ListviewComponent}, 
   {path: 'details', component: EditCategoryComponent},
-  {path: '',component: HomePageComponent}, 
+  {path: '',component:HomePageComponent}, 
 /*   {path: '**', redirectTo: '/home'} ,
   {path: '#',redirectTo: '/home'} */
   
