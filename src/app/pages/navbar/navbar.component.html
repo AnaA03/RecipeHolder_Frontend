@@ -1,22 +1,27 @@
-  <div class="container-fluid p-0">
-    <div class="margin-header p-2 bg-red">
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-12">
-        <p class="title-text">MyRecipeHolder</p></div>
-      <div class="col-lg-6 col-md-6 col-sm-12 google-btn">
-        <div class="dropdown" [hidden]="showDiv">
-          <p class="txt-user title-text dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-           Welcome, {{name}}</p>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item text-menu-logout" (click)="logout()">Logout</a>
-          </div>
-        </div>     
-           <!--  <button type="button" class="btn btn-danger text-login" [hidden]="isUser"  id="google-btn">Login</button> --> 
-        <div style="float: right;" id="google-btn" [hidden]="!showDiv"></div>
+<nav class="navbar navbar-expand-lg  p-0">
+  <div class="container-fluid bg-red margin-header">
+    <a class="navbar-brand title-text p-2">MyRecipeHolder</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!--spacer-->
+      </ul>
+      <div class="d-flex" [hidden]="showDiv">
+            <div class="dropdown" [hidden]="showDiv">
+              <p class="txt-user title-text dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+              {{name}}</p>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item text-menu-logout" (click)="logout()">Logout</a>
+              </div>
+            </div> 
+        
       </div>
     </div>
   </div>
-  </div>
+</nav>
+
 <hr class="hide-hr">
 
     <div class="logo-container">

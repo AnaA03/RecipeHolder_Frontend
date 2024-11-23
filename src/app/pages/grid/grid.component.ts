@@ -33,11 +33,11 @@ export class GridComponent implements OnInit {
 
   ngOnInit(): void {
   if(!sessionStorage['loggedInUser']){
-    console.log("user not exits");   
+    //console.log("user not exits"); 
+      
   }
   else {
-    this.user_id = JSON.parse(sessionStorage.getItem("loggedInUser")!).sub;
-    console.log("useriddd in grid",this.user_id);  
+    this.user_id = JSON.parse(sessionStorage.getItem("loggedInUser")!).sub; 
   }
     this.decodeUsernameSignUp();
 
@@ -59,7 +59,6 @@ export class GridComponent implements OnInit {
     }else {
       this.isUser = true;
     }
-    console.log("logg",this.isUser);
   }
 
   openModal_Delete(category_id: number) {
@@ -105,11 +104,8 @@ export class GridComponent implements OnInit {
   }
 
   getAllCategoriesByUserId() {
-    console.log("iddd cate",this.user_id);
     this._rest.getAllCategoriesByUserId(this.user_id).subscribe((resp: any) => {
       this.arr_category = resp.data;
-      console.log("respppp",resp.data);
-      console.log("arrrrrrrr", this.arr_category);
     }, err => {
       console.log(err);
     })
@@ -137,9 +133,7 @@ export class GridComponent implements OnInit {
        
     }
     else {
-    console.log("I want id",this.user_id);
     const obj = this.categoryForm.value;
-    console.log("obj input category name",obj);
       this.submitted = true;
       // stop here if form is invalid
       if(this.categoryForm.valid && this.categoryForm.value != '') {
